@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>Network</title>
+	<link rel="stylesheet" href="style.css">
+
+	<style>
+		.networkid {
+			display: inline; 
+			background-color: rgba(200, 200, 0, 0.3); 
+			padding-left: 6px; 
+			padding-right: 6px;
+		}
+		.hostid {
+			display: inline; 
+			background-color: rgba(0, 100, 200, 0.3);
+			padding-left: 6px; 
+			padding-right: 6px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<!-- ///////////////////// Title ///////////////////// -->
+	<table width="100%">
+		<col width="40%">
+		<col width="6%">
+		<col width="40%">
+		<tr>
+			<td class="clean" style="border-bottom: 2px solid white; height: 50%"></td>
+			<td class="clean" rowspan="2" style="text-align: center; vertical-align: middle; "><h2>Network</h2></td>
+			<td class="clean" style="border-bottom: 2px solid white;"></td>
+		</tr>
+		<tr>
+			<td class="clean"></td>
+			<td class="clean"></td>
+		</tr>
+	</table>
+
+	<!-- ///////////////// Content Table ///////////////// -->
+	<ol class="index">
+		<li><a href="#basic">Basic</a></li>
+	</ol>
+
+	<!-- ///////////////////// Content ///////////////////// -->
+	<br><br>
+	<h3><p id="basic">Basic</p></h3>
+	<table>
+		<tr>
+			<td>Abbreviation/Terminology</td>
+			<td class="code">
+				(DHCP) Dynamic Host Configuration Protocol <br>
+				(DNS) Domain Name System <br>
+				(URL) Uniform Resource Locator <br>
+				(FQDN) Fully Qualified Domain Name <br>
+				(AD) Active Directory domain <br>
+				<br>
+				(PDU) Protocol Data Unit <br>
+				(MAC) Medium Access Control <br>
+				(LLC) Logical Link Control <br>
+				(IP) Internet Protocol <br>
+				(TCP) Transmission Control Protocol <br>
+				(HTTP) Hypertext Transfer Protocol <br>
+				(NVMe) Non-Volatile Memory Express (for SSD) <br>
+				<br>
+				(KVM) Keyboard, Video, Mouse <br>
+				(MAC) Media Access Control [Address] <br>
+				(ARP) Address Resolution Protocol <br>
+				(NIC) Network Interface Card <br>
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>Network</td>
+			<td>
+				<b>Open System Interconnection (OSI) Model</b> <br>
+				<div style="margin-left: 24px;">
+					<table>
+						<thead>
+							<th class="tight_clean" colspan="2">Layer </th>
+							<th class="tight_clean">Protocol E.g.</th>
+							<th class="tight_clean">PDU</th>
+							<th class="tight_clean">What the protocol is controlling for</th>
+							<th class="tight_clean">Operators</th>
+						</thead>
+						<tr>
+							<td style="border-right: hidden;">1. </td>
+							<td class="">Physical</td>
+							<td class="">USB, RS-232, Ethernet ...</td>
+							<td class="">bit</td>
+							<td>raw bit transmission through transmission medium (i.e. cable)</td>
+							<td>Cable, hubs, repeaters</td>
+						</tr>
+						<tr>
+							<td style="border-right: hidden;">2. </td>
+							<td class="">Data Link</td>
+							<td class="">MAC, LLC ...</td>
+							<td class="">frame</td>
+							<td>data frames transmission between two node connected by physical layer</td>
+							<td>Layer 2 switch</td>
+						</tr>
+						<tr>
+							<td style="border-right: hidden;">3. </td>
+							<td class="">Network</td>
+							<td class="">IPv4, IPv6 ...</td>
+							<td class="">packet</td>
+							<td>
+								multi-node network structure <br>
+								(routing/traffic control/addressing)
+							</td>
+						</tr>
+						<tr>
+							<td style="border-right: hidden;">4. </td>
+							<td class="">Transport</td>
+							<td class="">TCP, UDP ...</td>
+							<td class="">segment</td>
+							<td>
+								transmission of data segments from source host to destination host across network <br>
+								(error recovery / segmentation and reassembly / ...) 
+							</td>
+						</tr>
+						<tr>
+							<td style="border-right: hidden;">5. </td>
+							<td class="">Session</td>
+							<td class="">NetBIOS ...</td>
+							<td class="" rowspan="3" style="vertical-align: middle;">data</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td style="border-right: hidden;">6. </td>
+							<td class="">Presentation</td>
+							<td class="">ASCII, MIME ...</td>
+							<td>
+								(character encoding / encryption and decryption / ...)
+							</td>
+						</tr>
+						<tr>
+							<td style="border-right: hidden;">7. </td>
+							<td class="">Application</td>
+							<td class="">FTP, HTTP, SSH ...</td>
+							<td>
+								API
+							</td>
+						</tr>
+
+					</table>
+					<br>
+					<br>
+					<b></b>
+				</div> <br>
+				<br>
+				<b>Network Node</b> <br>
+				&emsp;&rarr; <div class="hl">Host</div> &ensp;=&ensp; client or server <br>
+				&emsp;&rarr; (non-host) e.g. modem/hub/switch <br>
+				<br>
+				<b>Next Hop vs Default Gateway</b> <br>
+				<div style="margin-left: 24px;">
+					Default gateway &ensp;&rarr;&ensp; through which a device can access other network <br>
+					Next hop &ensp;&rarr;&ensp; next router(/device) in the path to a specific destination <br>
+					<div style="margin-left: 24px;">
+						E.g. <br>
+						-------------------------------------- <br>
+						Device A IP: 192.168.4.10 <br>
+						&emsp;Default Gateway: 192.168.4.1 <br>
+						Device B IP: 182.168.4.21 <br>
+						&emsp;Default Gateway: (blank) <br>
+
+						Device C IP: 182.168.12.9 <br>
+						<br>
+						Subnet Mask: 255.255.255.0 <br>
+						&emsp;i.e. Device C is in different network <br>
+						-------------------------------------- <br>
+						<u>Within Network</u>: <div class="grp">
+							when A trying to send packets to B, <br>
+							A applies Subnet Mask to IP-A and IP-B to deduce the Network ID &rarr; same = same network <br>
+							resolve IP into MAC with ARP
+						</div>
+						<br>
+						<u>Outside Network</u>: <div class="grp">
+							when A trying to send packets to C, <br>
+							from AND operation with Subnet Mask A knows C is not on the same network, <br>
+							so it sets the next-hop MAC address to gateway device <br>
+						</div>
+						<br>
+						B doesn't have a default gateway set &rarr; B cannot access the Internet <br>
+					</div>
+					
+				</div>
+				<br>
+				<b>Broadcast vs Collision Domain</b>
+			</td>
+		</tr>
+		<tr>
+			<td>Ethernet</td>
+			<td>
+				&ensp;=&ensp; wired computer network <br>
+				&ensp;&ensp;&ensp; in contrast to Wifi
+			</td>
+		</tr>
+		<tr>
+			<td>IP Configuration</td>
+			<td>
+				
+				(in Windows Command Prompt) <br>
+				<div style="margin-left: 24px; border: 1px solid white; padding-left: 6px; padding-right: 6px;" class="code">
+					&gt;ipconfig /all <br>
+					<br>
+					Windows IP Configuration <br>
+					<br>
+					&ensp;&ensp;&ensp;Host Name . . . . . . . . . . . . : SHEILA-PC<br>
+					&ensp;&ensp;&ensp;Primary Dns Suffix &ensp;. . . . . . . : ssssss.xxxxxx.com<br>
+					&ensp;&ensp;&ensp;Node Type . . . . . . . . . . . . : Hybrid<br>
+					&ensp;&ensp;&ensp;IP Routing Enabled. . . . . . . . : No <br>
+					&ensp;&ensp;&ensp;WINS Proxy Enabled. . . . . . . . : No <br>
+					&ensp;&ensp;&ensp;DNS Suffix Search List. . . . . . : ssssss.xxxxxx.com <br>
+					<div style="margin-left: 280px;">
+						server2.xxxxxx.com <br>
+						xxxxxx.com
+					</div>
+					<br>
+					Ethernet adapter Ethernet:<br>
+					&ensp;&ensp;&ensp;HConnection-specific DNS Suffix . : ssssss.xxxxxx.com<br>
+					&ensp;&ensp;&ensp;Description . . . . . . . . . . . : Intel(R) Ethernet Connection (7) I219-LM <br>
+					&ensp;&ensp;&ensp;Physical Address. . . . . . . . . : _ _ - _ _ - _ _ - _ _ - _ _ - _ _ <br>
+					&ensp;&ensp;&ensp;DHCP Enable . . . . . . . . . . . : Yes <br>
+					&ensp;&ensp;&ensp;Autoconfiguration Enabled . . . . : Yes <br>
+					&ensp;&ensp;&ensp;Link-local IPv6 Address . . . . . : fe80::116:e3ef:8d7d:656f%9 <br>
+					&ensp;&ensp;&ensp;IPv4 Address. . . . . . . . . . . : 160.42.67.71 <br>
+					&ensp;&ensp;&ensp;Subnet Mask . . . . . . . . . . . : 255.255.255.0 <br>
+					&ensp;&ensp;&ensp;Lease Obtained. . . . . . . . . . : (date) <br>
+					&ensp;&ensp;&ensp;Lease Expires . . . . . . . . . . : (date) <br>
+					&ensp;&ensp;&ensp;Default Gateway . . . . . . . . . : 160.42.67.254 <br>
+					&ensp;&ensp;&ensp;DHCP Server . . . . . . . . . . . : 160.87.53.11<br>
+
+					<br>
+				</div>
+				<br>
+				<b>Explanation</b> <br>
+				<table style="margin-left: 24px;">
+					<tr>
+						<td class="tight_clean">Host Name</td>
+						<td class="tight_clean">:</td>
+						<td class="tight_clean">
+							host name is mapped to IP address bt DNS server <br>
+							(on LAN)  &ensp;=&ensp; unique name of a computer being recognised by a network <br>
+							(as part of URL) &ensp;=&ensp; <div class="code" style="display: inline;">(protocol))://(hostname).(domain).(top level domain)/(folder)/(page)</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="tight_clean">Physical Address</td>
+						<td class="tight_clean">:</td>
+						<td class="tight_clean">MAC Address</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr>
+			<td>IP Address</td>
+			<td class="code">
+				<b>IPv4</b>
+				<div style="margin-left: 24px;">
+					<div class="def-text" style="width: 400px;">IPv4 AND Subnet Mask = Network ID (/ Network Prefix)</div> <br>
+					Comprised of 4 Groups <br>
+					1 group = 1 octet = 8 digits <br>
+					total 4 * 8 bits = 32 bits <br>
+					<table style="margin-left: 24px;">
+						<tr>
+							<td style="border: 0px; padding: 0px;">(8 bits).</td>
+							<td style="border: 0px; padding: 0px;">(8 bits).</td>
+							<td style="border: 0px; padding: 0px;">(8 bits).</td>
+							<td style="border: 0px; padding: 0px;">(8 bits)</td>
+						</tr>
+						<tr>
+							<td style="border: 0px; padding: 0px; text-align:center; ">1st</td>
+							<td style="border: 0px; padding: 0px; text-align:center; ">2nd</td>
+							<td style="border: 0px; padding: 0px; text-align:center; ">3rd</td>
+							<td style="border: 0px; padding: 0px; text-align:center; ">4th</td>
+						</tr>
+					</table>
+					
+					e.g. <br>
+					<div style="margin-left: 24px; background-color: rgba(255, 255, 255, 0.3); padding: 3px 12px;">
+						
+						From IP address 192.0.2.15 we know it belongs to Class C network, <br>
+						by definition the Network ID is defined by the first 3 octets <br>
+						i.e. 192.0.2 (192.0.2.0/24) <br>
+						(subnet mask = 255.255.255.0) <br>
+						<table class="tight_clean">
+							<tr>
+								<td>IPv4</td>
+								<td>192.0.2.15</td>
+								<td> = 11000000.00000000.00000010.00001111</td>
+							</tr>
+							<tr>
+								<td style="border-bottom: 1px solid white;">Subnet Mask</td>
+								<td style="border-bottom: 1px solid white;">255.255.255.0</td>
+								<td style="border-bottom: 1px solid white;"> = 11111111.11111111.11111111.00000000</td>
+							</tr>
+							<tr>
+								<td>Network ID</td>
+								<td>192.0.2</td>
+								<td> = 11000000.00000000.00000010</td>
+							</tr>
+							<tr>
+								<td>Host ID</td>
+								<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; 15</td>
+								<td> = &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 00001111</td>
+							</tr>
+						</table>
+						<br>
+						<table class="tight_clean">
+							<tr>
+								<td>IPv4</td>
+								<td>10.20.15.3</td>
+								<td> = 00001010.00010100.00001111.00000011</td>
+							</tr>
+							<tr>
+								<td style="border-bottom: 1px solid white;">Subnet Mask</td>
+								<td style="border-bottom: 1px solid white;">255.0.0.0</td>
+								<td style="border-bottom: 1px solid white;"> = 11111111.00000000.00000000.00000000</td>
+							</tr>
+							<tr>
+								<td>Network ID</td>
+								<td>10</td>
+								<td> = 00001010</td>
+							</tr>
+							<tr>
+								<td>Host ID</td>
+								<td>&emsp;&ensp; 20.15.3</td>
+								<td> = &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 00010100.00001111.00000011</td>
+							</tr>
+						</table>
+					</div>
+					<br>
+					<table class="tight_clean">
+						<tr>
+							<td style="border-top: 2px solid white; border-bottom: 1px solid white;">Class</td>
+							<td style="border-top: 2px solid white; border-bottom: 1px solid white;">Address</td>
+							<td style="border-top: 2px solid white; border-bottom: 1px solid white;">Special IPs</td>
+							<td style="border-top: 2px solid white; border-bottom: 1px solid white;"></td>
+						</tr>
+						<tr>
+							<td>A</td>
+							<td>1.0.0.1 &ensp; - 126.255.255.254</td>
+							<td>
+								<div class="networkid"> 0 (7).</div>
+								<div class="hostid">(8).(8).(8)</div>
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>127.x.x.x</td>
+							<td>localhost</td>
+						</tr>
+						<tr>
+							<td>B</td>
+							<td>128.1.0.1 - 191.255.255.254</td>
+							<td>
+								<div class="networkid"> 1 0 (6).(8).</div>
+								<div class="hostid">(8).(8)</div>
+							</td>
+						</tr>
+						<tr>
+							<td>C</td>
+							<td>192.0.1.1 - 223.255.254.254</td>
+							<td>
+								<div class="networkid"> 1 1 0 (5).(8).(8).</div>
+								<div class="hostid">(8)</div>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>224.0.0.0</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>D</td>
+							<td>224.0.0.0 - 239.255.255.255 </td>
+							<td></td>
+							<td>multicast</td>
+						</tr>
+						<tr>
+							<td>E</td>
+							<td>240.0.0.0 - 254.255.255.254</td>
+							<td></td>
+							<td>reserved for research</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>255.255.255.255</td>
+							<td>broadcast</td>
+						</tr>
+
+						<tr>
+							<td colspan="4" style="border-top: 2px solid white; ">
+								<div class="networkid"> Network ID</div>
+								<div class="hostid"> Host ID </div> <br>
+								&emsp;&emsp;&emsp;&emsp; &uarr; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &uarr;<br>
+								&emsp; Network &emsp;&emsp;&emsp; Device
+							</td>
+						</tr>
+					</table>
+				</div>
+				<br>
+				<b>Broadcast Address</b> <br>
+				&ensp;= last address within a network with IPv4 <br>
+				&ensp;&rarr; will send data to all hosts
+			</td>
+		</tr>
+		<tr>
+			<td>Subnet</td>
+			<td>
+				for faster data transmission <br>
+				&ensp;- by limiting the IP range of destination  <br>
+				<br>
+				<b>Technical Route</b> <br>
+				<ul class="stroke_list">
+					<li>packet arrived at router</li>
+					<li>routers uses its subnet mask to deduce the host ID </li>
+					<li>send data to a subnet </li>
+					<li>within the subnet, data send to correct IP address</li>
+				</ul>
+				<br>
+				<div class="code">
+					/24 network = using 24 bits (8 bits * 3) as subnet mask <br>
+					<div style="margin-left: 100px;">256 - 2 = 254 usable IPs</div>
+					/26 network = using 26 bits <br>
+					<div style="margin-left: 100px;">64 - 2 = 62 usable IPs</div>
+					i.e. a 192.168.5.0/24 network can subdivide into 4 /26 network <br>
+					<table class="tight_clean">
+						<tr>
+							<td>1:</td>
+							<td>11000000.10101000.00000101.<div class="hl">00</div>000000</td>
+						</tr>
+						<tr>
+							<td>2:</td>
+							<td>11000000.10101000.00000101.<div class="hl">01</div>000000</td>
+						</tr>
+						<tr>
+							<td>3:</td>
+							<td>11000000.10101000.00000101.<div class="hl">10</div>000000</td>
+						</tr>
+						<tr>
+							<td>4:</td>
+							<td>11000000.10101000.00000101.<div class="hl">11</div>000000</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td>HL7</td>
+			<td>
+				&ensp;=&ensp;Health Level 7 <br>
+				level 7 application <br>
+				&ensp;&rarr;&ensp; v2&ensp; ADT (Admit Discharge Transfer) <br>
+				<div style="margin-left: 48px;">
+					ADT file contains 3 levels: Trigger &gt; Segments &gt; Fields <br>
+					for transferring patient status: admission/discharge/register etc.
+				</div>
+				&ensp;&rarr;&ensp; v3&ensp; CCDA (Consolidated Clinical Document Architecture) <br>
+				&ensp;&rarr;&ensp; v4&ensp; FHIR (Fast Healthcare Interoperability Resources)
+			</td>
+		</tr>
+
+
+		<tr>
+			<td>Virtual Machine</td>
+			<td>
+				<b>Hypervisor</b> <br>
+				<div style="margin-left: 24px;">
+					&ensp;=&ensp; virtual machine monitor (VMM) or virtualiser <br>
+					&ensp;=&ensp; software that manage VMs, can host multiple VMs <br>
+				</div>
+				<br>
+				<b>ESXi</b> <br>
+				<div style="margin-left: 24px;">
+					&ensp;-&ensp; a hypervisors <br>
+					&ensp;-&ensp; runs on <i>bare-metal</i>, i.e. no need OS as interface, install directly on hardware <br>
+				</div>
+			</td>
+		</tr>
+
+	</table>
+
+
+
+
+</body>
+</html>
